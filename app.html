@@ -135,7 +135,22 @@ span{color:#fff;line-height:56px;}
 <tr><td>CinemaDrape</td><td>屏幕关灯</td><td><a href="https://www.aurelitec.com/cinemadrape/windows/">📥</a></td></tr>
 <tr><td>CLaunch</td><td>快捷启动</td><td><a href="http://hp.vector.co.jp/authors/VA018351">📥</a></td></tr>
 <tr><td>ConEmu</td><td>终端模拟器</td>  <td><a href="https://conemu.github.io">📥</a> <a href="https://github.com/be5invis/Sarasa-Gothic">🎨</a></td></tr>
-<tr><td>CopyQ</td><td>剪贴板管理</td><td><a href="https://hluk.github.io/CopyQ">📥</a> <a href="https://github.com/hluk/copyq-commands">⚓</a></td></tr>
+<tr><td>CopyQ</td><td><a href="#copyq">剪贴板管理</a></td><td><a href="https://hluk.github.io/CopyQ">📥</a> <a href="https://github.com/hluk/copyq-commands">⚓</a></td></tr>
+<div class="dialog-box" id="copyq">
+  <div class="dialog-con">
+    <a href="" class="dialog-close">❌</a>
+    <h2>添加新命令（F6）</h2><li>移动到"任务"标签：修改目标标签，设置快捷键 Ctrl + ←</li><li>在浏览器中打开：设置快捷键 Ctrl + U</li><li>忽略“密码”窗口：高级 - 窗口：KeePassXC</li><li>添加新命令 - 清空剪贴板：命令内容</li>
+<pre><code>copyq:
+tab(config('clipboard_tab'))
+items = Array
+  .apply(0, Array(size()))
+  .map(function(x,i){return i})
+remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中，匹配项：筛选器：copyq: size() || fail()</li>
+<h2>设置（Ctrl + P）</h2><li>条目 - 图片 - 图片编辑器命令：C:\Apps\lazpaint.exe</li><li>条目 - 文本 - 取消保存和现实 HTML 和 富文本</li><li>快捷键 - 显示托盘菜单 - Alt + , </li><li>快捷键 - 显示/隐藏主窗口 - Alt + . </li><li>外观 - 载入主题 - 位置：</li><code>C:\Users\nanji\OneDrive\Apps\CopyQ\config\copyq\themes</code>
+  </div>
+</div>
+
+
 <tr><td>CopyTranslator</td><td>拷贝翻译</td><td><a href="https://copytranslator.github.io">📥</a></td></tr>
 <tr><td>CPU-Z</td><td>CPU信息</td><td><a href="https://www.cpuid.com">📥</a></td></tr>
 <tr><td>GoodSync</td><td>文件同步</td><td><a href="https://www.goodsync.com/cn">📥</a></td></tr>
@@ -232,20 +247,9 @@ span{color:#fff;line-height:56px;}
 <div class="dialog-box" id="tg">
   <div class="dialog-con">
     <a href="" class="dialog-close">❌</a>
-    <h2>机器人：inline 模式（对话框输入）</h2>
-<li>@gif – GIF 搜索</li>
-<li>@vid – 视频搜索</li>
-<li>@pic – 搜 Yandex 图片</li>
-<li>@bing – 搜 Bing 图片</li>
-<li>@wiki – 搜 维基百科</li>
-<li>@imdb –  搜 IMDB</li>
-<li>@youtube - 搜  YouTube</li>
-<li>@music - 音乐搜索</li>
-<li>@foursquare – 寻找并发送聚会地点</li>
-<li>@sticker – 基于emoji查找并发送贴纸</li>
+    <h2>机器人：inline 模式（对话框输入）</h2><li>@gif – GIF 搜索</li><li>@vid – 视频搜索</li><li>@pic – 搜 Yandex 图片</li><li>@bing – 搜 Bing 图片</li><li>@wiki – 搜 维基百科</li><li>@imdb –  搜 IMDB</li><li>@youtube - 搜  YouTube</li><li>@music - 音乐搜索</li><li>@foursquare – 寻找并发送聚会地点</li><li>@sticker – 基于emoji查找并发送贴纸</li>
   </div>
 </div>
-
 <tr><td>同花顺</td><td>股票交易</td><td><a href="http://download.10jqka.com.cn">📥</a></td></tr>
 <tr><td>TaskbarX</td><td>任务栏居中</td><td><a href="https://github.com/ChrisAnd1998/TaskbarX">📥</a></td></tr>
 <tr><td>TeraCopy</td><td>文件复制</td><td><a href="https://www.codesector.com/teracopy">📥</a></td></tr>
