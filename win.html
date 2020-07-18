@@ -79,6 +79,7 @@ Windows Registry Editor Version 5.00
 </pre>
 <p><b>文件管理器中隐藏 OneDrive</b>：HKEY_CLASSES_ROOT\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}，双击其 System.IsPinnedToNameSpaceTree 修改值为 0 即可 </p>
 <p><b>右键添加移动到文件夹</b>：HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers，新建“项”，命名为“MoveTo”，双击其“默认值”，写入：{C2FBB631-2971-11d1-A18C-00C04FD75D13} </p>
+<p><b>右键添加移动到指定文件夹</b>：HKEY_LOCAL_MACHINE/SOFTWARE/Classes/*/shell 下 新建 [项] 为：move to foldername，在其上新建 [项] 为：command，修改其默认值为："powershell.exe" "mi %1 C:\foldername"</p>
 <p><b>清除任务栏图标记录</b>：HEEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify 删除PastIconsStream和IconStreams</p>
 <p><b>重命名网络连接名</b>：HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles Profiles里会发现你的连接都在这里显示（长字符串名称文件夹），双击你要修改的里的ProfileName值，输入你要的名字</p>
 <h1>主板引导菜单快捷键</h1>
