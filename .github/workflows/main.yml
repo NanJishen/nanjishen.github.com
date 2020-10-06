@@ -1,16 +1,30 @@
-on: push
-name: Publish on Netlify
+name: Production workflow
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+      - name: Checkout code
+        uses: actions/checkout@v1
 
-    - name: Publish
-      uses: netlify/actions/cli@master
-      with:
-        args: deploy --dir=site --functions=functions
-      env:
-        NETLIFY_SITE_ID: ${{ fdae1340-9439-4c5a-aa9e-c43c12cd0204 }}
-        NETLIFY_AUTH_TOKEN: ${{ 67R-IyCUA0Ey_TKICbvcYR4G8bE4vk5YHmcmrMTWntg }}
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm install
+      - run: npm run build --if-present
+
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=build --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
