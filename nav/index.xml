@@ -5,10 +5,6 @@
     <link>https://nav.ttti.cc/</link>
     <description>Recent content on 极限导航</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    
-	<atom:link href="https://nav.ttti.cc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-CN</language><atom:link href="https://nav.ttti.cc/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
