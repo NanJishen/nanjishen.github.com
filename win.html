@@ -2,7 +2,7 @@
 <h3>Win10_20H2 _ 2021-02-18 <i class="sha1">
 SHA1：B5CC14FA8C65FE176D148B855ED486A513E8616F</i></h3><textarea id="dllink" onclick="copyText()">
 magnet:?xt=urn:btih:65AC835ABC26EA04F0CBF4B8D18F99C5633F6DF9</textarea>
-<!-- key：VK7JG-NPHTM-C97JM-9MPGT-3V66T ；https://next.itellyou.cn-->
+<!-- key：VK7JG-NPHTM-C97JM-9MPGT-3V66T ；https://next.itellyou.cn、https://uupdump.net、https://uup.rg-adguard.net -->
 <p>现在推荐在<a href="https://www.microsoft.com/zh-cn/software-download/windows10"> 微软官方下载 </a>并制作镜像（<a href="https://mp.weixin.qq.com/s/jVxd5ETCDcoFOsRATa6NPg">动图演示步骤</a>）| 制作多系统启动U盘<a href="https://mp.weixin.qq.com/s/AKXk4xzyjKUKeiOtBeZskw"> Ventoy 使用指南</a><p>Office 推荐使用 <a href="https://otp.landian.vip/zh-cn/">Office Tool</a> 进行安装</p>
 </p><h3>安装方法</h3>设U盘为第一引导设备，跟着向导完成安装（选盘符时可以点 [高级]-[格式化]，进行格式化）
 <h3>全自动激活</h3>
@@ -45,10 +45,10 @@ slmgr /ipk x-x-x-x-x ：设置密钥，5×5的序列号
 <br>slmgr.vbs -cpky ：从注册表中清除产品密钥
 <br>slmgr.vbs -ilc ：导入OEM证书，后面为OEM证书的路径 -->
 <h3>相关工具和运行库</h3>
-→ <a href="http://rufus.akeo.ie">Rufus</a> |  
-<a href="http://www.wepe.com.cn">WePE</a> | 
-<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=35">DirectX 运行库</a> | 
-<a href="https://dotnet.microsoft.com/download/dotnet-framework">.NET Framework</a> | 
+→ <a href="http://www.wepe.com.cn">WePE</a> | 
+<a href="https://gist.github.com/AveYo/c74dc774a8fb81a332b5d65613187b15">MCT.bat</a> |  
+<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=35">DirectX</a> | 
+<a href="https://dotnet.microsoft.com/download/dotnet-framework">NET Framework</a> | 
 <a href="https://pan.baidu.com/s/1qb8EJDaIgEFN_UO0JycIOQ">Visual C++（提取码: 7yyd）</a>
 <a href="https://www.free-codecs.com/download/hevc_video_extension.htm">HEVC_H265</a>
 <h3>重装系统之备份</h3>
@@ -104,9 +104,6 @@ Windows Registry Editor Version 5.00
 
 
 
-
-
-
 <p><a href="https://www.yuque.com/nanjishen/smr0zt/ag3sqh">...</a></p>
 <!-- 以下是OpenWrt内容 -->
 <h1>OpenWrt<a name="tips5"></a></h1><h3>Nanopi R2S</h3>
@@ -136,7 +133,10 @@ dd if=/tmp/upload/op.img of=/dev/sda # 使用 dd 命令写盘到第一块硬盘�
 reboot # 重启路由器</code></pre>
 <h2>插件使用</h2><h3>PassWall</h3>
 <strong>基本设置：</strong><br>主要：TCP 节点选你要连接的节点；UDP 节点不代理游戏可以关闭<br>Socks5 配置：选择你要的节点，端口写 18111（192.168.10.1:18111）<br>DNS：过滤模式选 pdnsd；远程 DNS 选 8.8.4.4，8.8.8.8<br>模式：TCP默认代理模式选中国列表以外；UDP可以选不代理；路由器自身TCP和UDP选GFW列表<br><strong>节点订阅：</strong><br>拉到下角点击“添加”，将你的订阅添加进去，，日后可以点击上方的“手动订阅”来更新节点<br><strong>组件更新：</strong>可以更新内核；<strong>规则管理：</strong>可以点手动更新来更新规则列表
-<h3>OpenClash</h3><strong>首次配置：</strong><br>全局配置 - 模式设置：<br>运行模式：Redir-Host（兼容）模式<br>UDP流量转发：启用<br>代理模式：Rule<br>绕过中国大陆IP：启用<br>全局设置 - 常规设置 - 选择内核编译版本：Linux armv8全局配置 - 版本更新 - 点当前 Dev 分支-检查并更新<br><br><strong>配置文件管理：</strong><br>选择文件 - 你的配置文件，上传即可（如果你是机场，有订阅链接，在配置文件订阅添加；在线订阅转换启用，以下全部启用）然后在配置文件列表，点切换<p>使用：运行状态 - 打开 Dashboard 控制面板，设置 - 输入你的路由器IP地址</p><a href="https://www.youtube.com/watch?v=FViAqOYNCDw">参考视频</a>
+<h3>OpenClash</h3><strong>全局配置：</strong><br>模式设置：运行模式选混合模式、代理模式选Rule、勾选绕过大陆IP，保存配置<br>常规设置：选择内核编译版本 Linux armv8、绑定网络接口选 br-lan，保存配置<br>DNS 设置：勾选DNS本地劫持+自定义上游服务器+禁止 Dnsmasq 缓存 DNS（这就会使用下方的那些自定义的DNS），保存配置<br>
+版本更新 - 一键更新<br>
+<strong>配置文件管理：</strong>选择文件 - 你的配置文件，上传即可（如果你是机场，有订阅链接，往下看）<br><strong>配置文件订阅</strong>：添加 - 配置文件名随意、插入机场订阅链接、勾选在线订阅转换，在订阅转换模板中选择“ALC4SSR 规则 Online Full”、Emoji 和 UDP 支持选启用 - 保存，点应用配置
+<br>回到<strong>运行状态</strong>：打开 Dashboard 控制面板，设置 - 输入你的路由器IP地址</p><a href="https://www.youtube.com/watch?v=FViAqOYNCDw">参考视频</a>
 <h3>AdGuardHome</h3>1. 勾选启用、更新核心版本、重定向选“作为 dnsmasq 上游服务器”<br>2. 点击 AdGuardHome Web 进入管理页进行配置：<br>&nbsp&nbsp1. 网页管理页面监听端口：3000、DNS 服务器监听端口：5635<br>&nbsp&nbsp2. 建立管理员用户和密码、打开仪表盘登录即可<br><br>设置 - DNS 设置，填写上游 DNS 服务器后勾选负载均衡：<br><pre><code>https://dns10.quad9.net/dns-query
 tls://8.8.8.8
 tls://8.8.4.4
@@ -190,11 +190,11 @@ iptables -t nat -l POSTROUTING -o 虚拟网卡 -j MASQUERADE
 DNS 填写 1.1.1.1 使用 Cloudflare DNS 解析查询结果，避免其他提供商缓存影响</code></pre>
 然后外网可以通过：域名+端口 进行访问<br>
 <p>备注：带宽和网速换算：MB/s 是速度单位，Mbps 是带宽单位，计算公式：MB/s × 8 = 带宽，Mbps ÷ 8 = 速度</p>
-<h3>网易解锁灰色音乐</h3><a href="https://www.youtube.com/watch?v=dApQa3AnOrE">参考视频</a><h2>参考资料</h2><a href="https://www.youtube.com/watch?v=_i7ip8n-f5o">旁路由设置</a>
+<h3>网易解锁灰色音乐</h3><a href="https://www.youtube.com/watch?v=dApQa3AnOrE">参考视频</a>
 <h3>Aria2</h3>先确定挂载点：系统 - 挂载点（可以看到 /tmp）<br>网络存储 - 网络共享 - 下面点添加：<pre><code>名字自定，目录：/tmp/upload/（即在挂载点里有的）
 勾选可浏览，使用 root，允许匿名用户
 创建文件掩码 0666，新建文件夹掩码 0777</code></pre>
-Aria2 配置：<br>常规配置：勾选启用，以此用户权限运行里选 root<br>文件和位置：配置文件目录 /etc/aria2；默认下载目录 /tmp/upload/<br>配置好后点击上方的 打开 <a href="http://192.168.10.1/ariang">ARIANG</a>
+Aria2 配置：<br>常规配置：勾选启用，以此用户权限运行里选 root<br>文件和位置：配置文件目录 /etc/aria2；默认下载目录 /tmp/upload/<br>配置好后点击上方的 打开 <a href="http://192.168.10.1/ariang">ARIANG</a><h3>设置端口转发</h3>OpenWRT - 网络 - 防火墙 - 端口转发：Aria2：51413；qbittorrent：51400<h2>参考资料</h2><a href="https://www.youtube.com/watch?v=_i7ip8n-f5o">旁路由设置</a>
 <!-- 以下是Office内容 -->
 <h3><a name="tips6"> </a>Bullet Journal 符号</h3><table><tr><td>□ 代办事项</td><td>☆ 星标/重要</td><td>? 疑惑/问题</td><td> ! 关键/紧急</td></tr><tr><td># 备注/想法</td><td>+ 存档/收藏</td><td>> 可延迟的</td><td>& 突发奇想</td></tr></table>
 <h1>OneNote</h1><h3>要知道的几件事</h3><ul><li>目录结构：笔记本&gt;分区&gt;分页&gt;子页</li><li>文字中间按 Tab键 建立表格</li><li>项目列表光标在最前按 Tab键 建立子列表</li><li>数学公式后按空格可以自动计算（如5+5=空格）</li><li>边录音可以边输入文字进行段落记录</li><li>打印页面可以把PDF等发送至OneNote</li><li>再第二行按TAB缩进后点第一行左侧箭头可折叠</li></ul>
