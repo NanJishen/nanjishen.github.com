@@ -181,12 +181,12 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <tr><td>Etcher</td><td>U盘制作</td><td><a href="https://www.balena.io/etcher">📥</a></td></tr>
 <tr><td>Everything</td><td><a href="#everything">文件搜索</a></td><td><a href="http://www.voidtools.com">📥</a></td></tr>
 <div class="dialog-box" id="everything"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
-<h1>Everything</h1>字符作用——示例<li>*通配符——*.pdf（任何名后缀位pdf文件）</li><li>space与——01 ok（包含01与ok）</li><li>|或——123|456（包含123或456的文件）</li><li>dm:日期——*jpg dm:2016/10/10-:2016/10/20（2012年10月10日到20日的.jpg文件）</li><li>X:\XX路径——D:\folder 123（D盘folder文件夹下包含123的文件）</li><li>size:大小——*.zip size:&gt;300MB（所有大于300MB的.zip文件）</li><li>?通配符——???.txt（xxx.txt文件（和*的区别是一个?号代替1个字母）</li><li>.任意单字符——nj.hen（nj任一字符hen，结果njshen）</li><li>^头部——^game（以game开头的）</li><li>$尾部——game$（以game结尾的）</li><li>[]包括字符——[abc]（a或b或c）</li><li>[^]不包括字符——[^abc]（不包括a或b或c）</li><li>[-]任意字符——[a-z]（从a到z之间的任何一个字符）</li><li>[--]任意字符——[a-zA-Z]（从a到z,及从A到Z之间的任何一个字符）</li>
+<h3>字符作用：示例</h3><p>* 通配符：*.pdf（任何名后缀为pdf文件）</p><p>space 与：01 ok（包含01与ok）</p><p>| 或：123|456（包含123或456的文件）</p><p>dm:日期：*jpg dm:2016/10/10-:2016/10/20（2012年10月10日到20日的.jpg文件）</p><p>X:\XX 路径：D:\folder 123（D盘folder文件夹下包含123的文件）</p><p>size:大小：*.zip size:&gt;300MB（所有大于300MB的.zip文件）</p><p>? 通配符：???.txt（xxx.txt文件（和*的区别是一个?号代替1个字母）</p><p>. 任意单字符：nj.hen（nj任一字符hen，结果njshen）</p><p>^ 头部：^game（以game开头的）</p><p>$尾部：game$（以game结尾的）</p><p>[] 包括字符：[abc]（a或b或c）</p><p>[^] 不包括字符：[^abc]（不包括a或b或c）</p><p>[-] 任意字符：[a-z]（从a到z之间的任何一个字符）</p><p>[--] 任意字符：[a-zA-Z]（从a到z,及从A到Z之间的任何一个字符）</p>
 </div>
 </div>
 <tr><td>FFmpeg</td><td><a href="#ffmpeg">视频转换压缩</a></td><td><a href="http://ffmpeg.org">📥</a> <a>🐧</a></td></tr>
 <div class="dialog-box" id="ffmpeg"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
-<h2>常用命令</h2>ffmpeg -i file.mp4 -hide_banner # 查看视频编码和比特率<br>ffmpeg -i input.mp4 -c:v libx264 output.mp4 # 转成 H.264/5 编码<br>ffmpeg -i input.mp4 -c copy output.webm # 编码不变的转换为 webm 格式<br>ffmpeg -i input.mp4 -minrate 964K -maxrate 3856K -bufsize 2000K output.mp4 # 调整码率最小为964K，最大为3856K，缓冲区大小为2000K<br>ffmpeg -i input.mp4 -vf scale=720:-1 output.mp4 # 改变分辨率为720P<br>ffmpeg -i input.mp4 -vn -c:a copy output.aac # 提取视频中的音频<br>ffmpeg -i input.aac -i input.mp4 output.mp4 # 合并音频视频<br>ffmpeg -i input.m4a -i input.mp4 -vcodec copy -acodec copy output.mp4 # 合并音频视频<br>ffmpeg -y -i input.mp4 -ss 00:01:24 -t 00:00:01 output_%3d.jpg # 从指定时间开始连续对1秒钟的视频进行截图<br>ffmpeg -ss 01:23:45 -i input -vframes 1 -q:v 2 output.jpg #  vframes 1 指定只截取一帧（即一张图），-q:v 2 表示图片质量（1-5，1为质量最高）<br>ffmpeg -i input.mkv -vf subtitles=text.ass 01_output.mkv # 添加 ass 字幕<br>ffmpeg -i input.mp4 -i file.srt -c:s mov_text -c:v copy -c:a copy output.mp4 # 以文本形式添加字幕<br><br>剪切片段，输出为一个新视频。可以指定开始时间（start）和持续时间（duration），也可以指定结束时间（end）<br>ffmpeg -ss 00:01:50 -i [input] -t 10.5 -c copy [output]<br>ffmpeg -ss 2.5 -i [input] -to 10 -c copy [output]<br>为音频添加封面，以视频格式上传<br>ffmpeg -loop 1 -i cover.jpg -i input.mp3 -c:v libx264 -c:a aac -b:a 192k -shortest output.mp4 # -loop 1 表示图片无限循 cover.jpg，input.mp3，-shortest 表示音频文件结束，输出视频就结束
+<h2>常用命令</h2>ffmpeg -i file.mp4 -hide_banner # 查看视频编码和比特率，也可以接 http://...mp4 查看网络视频<br>ffmpeg -i input.mp4 -c:v libx264 output.mp4 # 转成 H.264/5 编码<br>ffmpeg -i input.mp4 -c copy output.webm # 编码不变的转换为 webm 格式<br>ffmpeg -i input.mp4 -minrate 964K -maxrate 3856K -bufsize 2000K output.mp4 # 调整码率最小为964K，最大为3856K，缓冲区大小为2000K<br>ffmpeg -i input.mp4 -vf scale=720:-1 output.mp4 # 改变分辨率为720P<br>ffmpeg -i input.mp4 -vn -c:a copy output.aac # 提取视频中的音频<br>ffmpeg -i input.aac -i input.mp4 output.mp4 # 合并音频视频<br>ffmpeg -i input.m4a -i input.mp4 -vcodec copy -acodec copy output.mp4 # 合并音频视频<br>ffmpeg -y -i input.mp4 -ss 00:01:24 -t 00:00:01 output_%3d.jpg # 从指定时间开始连续对1秒钟的视频进行截图<br>ffmpeg -ss 01:23:45 -i input -vframes 1 -q:v 2 output.jpg #  vframes 1 指定只截取一帧（即一张图），-q:v 2 表示图片质量（1-5，1为质量最高）<br>ffmpeg -i input.mkv -vf subtitles=text.ass 01_output.mkv # 添加 ass 字幕<br>ffmpeg -i input.mp4 -i file.srt -c:s mov_text -c:v copy -c:a copy output.mp4 # 以文本形式添加字幕<br><br>剪切片段，输出为一个新视频。可以指定开始时间（start）和持续时间（duration），也可以指定结束时间（end）<br>ffmpeg -ss 00:01:50 -i [input] -t 10.5 -c copy [output]<br>ffmpeg -ss 2.5 -i [input] -to 10 -c copy [output]<br>为音频添加封面，以视频格式上传<br>ffmpeg -loop 1 -i cover.jpg -i input.mp3 -c:v libx264 -c:a aac -b:a 192k -shortest output.mp4 # -loop 1 表示图片无限循 cover.jpg，input.mp3，-shortest 表示音频文件结束，输出视频就结束
 </div>
 </div>
 <tr><td>FileGee</td><td>文件同步</td><td><a href="http://cn.filegee.com">📥</a></td></tr>
@@ -196,14 +196,14 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <tr><td>Fliqlo</td><td>屏保时钟</td><td><a href="https://fliqlo.com">📥</a></td></tr>
 <tr><td>Fluent Reader</td><td>RSS阅读器</td><td><a href="https://github.com/yang991178/fluent-reader">📥</a></td></tr>
 <tr><td>Foobar2000</td><td>音乐播放器</td><td><a href="https://www.foobar2000.org">📥</a> <a href="https://www.rarewares.org/mp3-lame-bundle.php">⚓</a></td></tr>
-<tr><td>Free Color Picker</td><td>色彩调色板</td><td><a href="https://github.com/jackdp/Free-Color-Picker">📥</a></td></tr>
+<tr><td>Free Color Picker</td><td>色彩调色盘</td><td><a href="https://github.com/jackdp/Free-Color-Picker">📥</a></td></tr>
 <tr><td>Free Countdown Timer</td><td>倒数计时器</td><td><a href="https://free-countdown.com/cn/">📥</a></td></tr>
 <tr><td>FreeFileSync</td><td>文件同步</td><td><a href="http://www.freefilesync.org">📥</a></td></tr>
-<tr><td>Frp</td><td>内网穿透</td><td><a href="https://github.com/fatedier/frp">📥</a></td></tr>
+<tr><td>Frp</td><td><a href="https://shimo.im/docs/yjccRxccRrWphH3w#anchor-7FOl">内网穿透</a></td><td><a href="https://github.com/fatedier/frp">📥</a></td></tr>
 <tr><td>FSCapture</td><td>截图录屏</td><td><a href="https://www.faststone.org">📥</a></td></tr>
-<tr><td>FSViewer</td><td>图像浏览</td><td><a title="同上">📥</a></td></tr>
+<tr><td>FSViewer</td><td>图像浏览</td><td><a href="https://www.faststone.org/FSIVDownload.htm">📥</a> <a href="https://www.irfanview.com">💽</a></td></tr>
 <tr><td>FSResizer</td><td>批量处理图像</td><td><a title="同上">📥</a></td></tr>
-<tr><td>Geek Uninstall</td><td>卸载软件</td><td><a href="https://geekuninstaller.com">📥</a></td></tr>
+<tr><td>Geek Uninstall</td><td>卸载软件</td><td><a href="https://geekuninstaller.com">📥</a> <a href="https://www.hibitsoft.ir">💽</a></td></tr>
 <tr><td>GIMP</td><td><a href="#gimp">图片编辑</a></td><td><a href="https://www.gimp.org">📥</a> <a href="https://www.gimphelp.org">⚓</a> <a>🐧</a></td></tr>
 <div class="dialog-box" id="gimp"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>设置</h2>更换主题和图标： 编辑 - 首选项 - 主题、图标<p>编辑 - 首选项 - 文件夹，下可以查看各资源的目录位置</p><h2>使用</h2>移动视图：鼠标在图像外；按住空格 - 移动鼠标<br>修改分辨率：图像 - 缩放图像 <br>旋转图片：图像 - 变换（工具栏有旋转工具）<br>操作选区：选区状态下 - 选择 - 剪裁到选区/反转/浮动/按颜色/从路径/扩大/收缩/形变/圆角矩形<br>取消选区：Ctrl+Shift+A 或点一下非选区的位置<br>框选到新建图层：框选 - Ctrl+C,V - Ctrl+Shift+N（框选 - 右键 - 编辑 - 粘贴为 - 新建图层）<br>绘制直线：铅笔工具 - 点一下起点 - 按住 shift 点终点<br>绘制矩形/圆型：选区工具 - 画出轮廓 - 编辑 - 勾画选区<br>对其操作：对其工具 - 按住 Shift 分别点选要对其的内容 - 调整左侧工具栏的对齐方式<h2>效果</h2>
 文字加描边：右键文字 - 从文字创建路径；选择 - 从路径；选择 - 扩大 - 输入值；在文字下新建图层并填充颜色<h2>快捷键</h2>Alt + Enter：查看图像属性<br>Ctrl+, / . ：前景色填充 / 背景色填充
@@ -214,6 +214,7 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <tr><td>GPU-Z</td><td>显卡信息</td><td><a href="https://www.techpowerup.com/download/techpowerup-gpu-z">📥</a></td>
 <tr><td>HandBrake</td><td>视频转换压缩</td><td><a href="https://handbrake.fr">📥</a> <a>🐧</a></td></tr>
 <tr><td>HFS</td><td>HTTP文件服务</td><td><a href="http://www.rejetto.com/hfs">📥</a></td></tr>
+<tr><td>Inkscape</td><td>矢量图形编辑器</td><td><a href="https://inkscape.org">📥 🐧</a></td></tr>
 <tr><td>Honeyview</td><td>轻量图片浏览</td><td><a href="http://www.bandisoft.com/honeyview">📥</a></td></tr>
 <tr><td>Hourglass</td><td>极简计时器</td><td><a href="https://github.com/dziemborowicz/hourglass/releases">📥</a></td></tr>
 <tr><td>HWiNFO</td><td>硬件检测</td><td><a href="https://www.hwinfo.com">📥</a></td></tr>
@@ -223,6 +224,7 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <tr><td>ImageGlass</td><td>轻量看图</td><td><a href="https://imageglass.org">📥</a></td></tr>
 <tr><td>Inpaint</td><td>图片去水印</td><td><a href="https://www.theinpaint.com">📥</a></td></tr>
 <tr><td>Joplin</td><td>开源笔记本</td> <td><a href="https://joplinapp.org">📥</a> <a>🐧</a></td></tr>
+<tr><td>Just Color Picker</td><td>颜色调色盘</td><td><a href="https://annystudio.com/software/colorpicker/">📥</a></td></tr>
 <tr><td>剪映</td><td>视频剪辑</td><td><a href="https://lv.ulikecam.com">📥</a> <a>📱</a></td></tr>
 <tr><td>KeePass</td><td>密码管理</td> <td><a href="https://keepass.info">📥</a> <a href="https://keepassxc.org">🎫</a> <a href="https://pwsafe.org">💽</a> <a href="https://zhuanlan.zhihu.com/p/35907865">📄</a></td></tr>
 <tr><td>Kdenlive</td><td title="ACDSee Video">视频剪辑</td> <td><a href="https://kdenlive.org">📥</a> <a>🐧</a></td></tr>
@@ -230,15 +232,16 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <div class="dialog-box" id="kitty">
 <div class="dialog-con">
 <a href="" class="dialog-close">❌</a>
-<h2>设定</h2>连接服务器：Session - 服务器 IP + 端口，勾选 SSH<br>修改行列数：Window - Columns 行数；Rows 列数<br>更改字体：Windows - Appearance - Font settings 点 Chane ，勾选 Allow selection of variable-pitch<br>fonts<br>设置默认用户名：Connection - Date - Login Details - 输入用户名<br>设置通过代理：Connection - Proxy  - 选择代理 - 输入IP和端口<br>保存设定：Session - Saved Sessions/New Folder 中输入个名字，点 Save 保存<br>读取设定：Session - 下面选择你要的，然后点击右边 Load 按钮<h3>SSH 登录设置</h3>运行 <a href="https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe">puttygen.exe</a> - Conversions - Import key，选择 privateKey 文件 - save private key，保存为 .ppk 文件，然后在 KiTTY - Connection - SSH - Auth 中浏览 privatekey 文件
+<h2>设定</h2>连接服务器：Session - 服务器 IP + 端口，勾选 SSH<br>设置用户名和密码：Connection - Date - Login Details - 输入用户名，下面输入密码<br>修改行列数：Window - Columns 列数 110；Rows 行数 20<br>去掉滚动条：Window - 取消勾选 Display sorollbar<br>更改字体：Windows - Appearance - Font settings 点 Chane（字体 MesloLGM NF，大小 16），勾选 Allow selection of variable-pitch fonts<br>字体颜色：Window - Colours - Default Foreground - Modify 设置（绿色 #00ff00）<br>设置通过代理：Connection - Proxy - 选择代理 - 输入IP和端口<br>保持连接：Connection - Seconds between keepaliaves - 输入8（每间隔8秒给服务器发送一个空的数据包以保持连接<br>
+控制台保存历史数：Window - Lines of scrollback - 50000（保存行数）<br>保存设定：Session - Saved Sessions/New Folder 中输入个名字，点 Save 保存<br>读取设定：Session - 下面选择你要的，然后点击右边 Load 按钮<h3>SSH 登录设置</h3>运行 <a href="https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe">puttygen.exe</a> - Conversions - Import key，选择 privateKey 文件 - save private key，保存为 .ppk 文件，然后在 KiTTY - Connection - SSH - Auth 中浏览 privatekey 文件
 </div>
 </div>
 <tr><td>快贴</td><td>剪贴板同步</td><td><a href="https://clipber.com">📥</a></td></tr>
 <tr><td>Lanzou-Gui</td><td>蓝奏云客户端</td><td><a href="https://github.com/rachpt/lanzou-gui">📥</a> <a href="https://github.com/zaxtyson/LanZouCloud-CMD">💻</a></td></tr>
 <tr><td>LazPaint</td><td>轻量图片编辑</td><td><a href="https://github.com/bgrabitmap/lazpaint">📥</a></td></tr>
 <tr><td>Lively</td><td>动态壁纸</td><td><a href="https://github.com/rocksdanister/lively">📥</a></td></tr>
-<tr><td>lolMiner</td><td>挖矿</td><td><a href="https://github.com/Lolliedieb/lolMiner-releases">📥</a> <a href="http://www.qskg.top">💽</a> <a href="https://www.nicehash.com">💽</a></td></tr>
-<tr><td>洛雪音乐助手</td><td>在线音乐播放</td><td><a href="https://github.com/lyswhut/lx-music-desktop">📥</a> <a href="http://www.aichunjing.com/soft/1005.html">💽</a></td></tr>
+<tr><td>lolMiner</td><td>挖矿</td><td><a href="https://github.com/Lolliedieb/lolMiner-releases">📥</a> <a href="http://www.qskg.top">💽</a> <a href="https://www.nicehash.com">⚓</a> <a href="https://www.unmineable.com">⚓</a></td></tr>
+<tr><td>洛雪音乐助手</td><td>在线音乐播放</td><td><a href="https://github.com/lyswhut/lx-music-desktop">📥</a> <a href="https://github.com/lyswhut/lx-music-mobile">📱</a> <a href="http://www.aichunjing.com/soft/1005.html">💽</a></td></tr>
 <tr><td>Meld</td><td>文档对比</td><td><a href="https://meldmerge.org">📥</a></td></tr>
 <tr><td>MemPad</td><td>快速记事本</td><td><a href="http://www.horstmuc.de">📥</a></td></tr>
 <tr><td>Microsoft To-Do</td><td>效率清单</td><td><a href="https://www.microsoft.com/zh-cn/p/microsoft-to-do-list-task-reminder/9nblggh5r558">🎫</a></td></tr>
@@ -294,11 +297,9 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <tr><td>Pingo</td><td>图片压缩覆盖</td><td><a href="https://css-ig.net/pingo">📥</a></td></tr>
 <tr><td>Pointofix</td><td>屏幕画笔</td><td><a href="http://www.pointofix.de/download.php">📥</a></td></tr>
 <tr><td>Potplayer</td><td><a href="#potplayer">视频播放</a></td><td><a href="http://potplayer.daum.net">📥</a> <a href="https://github.com/iptv-org/iptv">⚓</a> <a href="https://masuit.com/1876">📝</a></td></tr>
-<div class="dialog-box" id="potplayer">
-  <div class="dialog-con">
-    <a href="" class="dialog-close">❌</a>
-    <h1>Potplayer</h1><h3>设置</h3><li>快速隐藏播放器：基本 - 热键 - 添加 - 屏幕 - 最小化</li><li>自动隐藏皮肤：基本 - 热键 - 添加 - 皮肤 - 视频下自动隐藏</li><li>基本 - 勾选最小化后暂停播放</li><li>基本 - 鼠标 - 左键单击播放、左键双击全屏</li><li>基本 - 勾选在收藏菜单中显示播放记忆点</li><li>基本 - 皮肤/配色 - 勾选视频下自动隐藏</li><li>基本 - 皮肤覆盖/放大 - 方式：使用 Direct3D 11</li><li>基本 - 启始 - 窗口位置：居中，窗口尺寸：800×600</li><li>播放 - 勾选鼠标指向进度条时显示缩略图</li><li>播放 - 宽高比 - 缩放窗口时保持宽高比</li><li>基本 - 消息 - 水平位置 [右]、垂直位置 [底]；字体雅黑白色8号、边框黑色；上下左右边距 [1]；勾选在屏幕上显示播放信息、仅全屏时显示；取消勾选显示文件名</li><li>右键 - 视频 - 图像截取 - 选择截图存档路径</li><h1>调用 LAV Filters 的方法</h1><li><b>注：madVR 和 xysubFilter 方法相同</b></li><li>滤镜 - 内置图像处理率进行设置：激活条件（不使用）</li><li>滤镜 - 源滤镜/分离器 - 右下角“滤镜/解码管理器 - 点有右下的“添加系统外部或系统滤镜”，进行如下设置（滤镜 - 源滤镜/分离器）：</li><li>选中左边的“LAV Audio Decoder”，将右边音频解码器里能钩的全勾上</li><li>选中“LAV Splitter Source”,将“源滤镜/分离器”里的除了H264之外的全勾上</li><li>选中“LAV Video Decoder”,将“视频解码器”里的全勾上</li><li>滤镜 - 全局滤镜优先权 - 添加系统或外部滤镜，选 LAV Video Decoder（外部文件为：LAVVideo.ax勾选其右边的“强制使用”</li>
-  </div>
+<div class="dialog-box" id="potplayer"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
+<h2>设置</h2><li>快速隐藏播放器：基本 - 热键 - 添加 - 屏幕 - 最小化</li><li>自动隐藏皮肤：基本 - 热键 - 添加 - 皮肤 - 视频下自动隐藏</li><li>基本 - 勾选最小化后暂停播放</li><li>基本 - 鼠标 - 左键单击播放、左键双击全屏</li><li>基本 - 勾选在收藏菜单中显示播放记忆点</li><li>基本 - 皮肤/配色 - 勾选视频下自动隐藏</li><li>基本 - 皮肤覆盖/放大 - 方式：使用 Direct3D 11</li><li>基本 - 启始 - 窗口位置：居中，窗口尺寸：800×600</li><li>播放 - 勾选鼠标指向进度条时显示缩略图</li><li>播放 - 宽高比 - 缩放窗口时保持宽高比</li><li>基本 - 消息 - 水平位置 [右]、垂直位置 [底]；字体雅黑白色8号、边框黑色；上下左右边距 [1]；勾选在屏幕上显示播放信息、仅全屏时显示；取消勾选显示文件名</li><li>右键 - 视频 - 图像截取 - 选择截图存档路径</li><h2>配置渲染器和滤镜</h2><a href='http://www.madvr.com'>madVR</a>（视频渲染器）、<a href='https://github.com/Nevcairiel/LAVFilters'>LAVFilters</a>（解码滤镜）、<a href="https://github.com/Cyberbeing/xy-VSFilter">XySubFilter</a>（字幕插件）<br>下载后都保存到 Potplayer 自身的目录中即可<p>设置 - 滤镜 - 内置图像处理滤镜设置 - 激活条件选不使用；在上方选择源滤镜/分离器标签 - 右下角点“滤镜/解码管理器“ - 点“添加系统外部或系统滤镜” - 选择 madVR和LAVFilters即可，如果你是安装版本可以选择点”添加系统滤镜“，确认添加到左面的“DirectShow 滤镜列表”，然后不要关闭，继续设置如下：</p><p>选中左面 DirectShow 滤镜列表中的 “LAV Audio Decoder”，再将右边音频解码器里的全勾上</p><p>继续选中 “LAV Splitter Source”，将“源滤镜/分离器”里的除了 H264 之外的全勾上</p><p>继续选中 “LAV Video Decoder” , 将“视频解码器”里的全勾上，然后确定</p><p>设置 - 滤镜 - 全局滤镜优先权标签 - 添加系统或外部滤镜，选 LAV Video Decoder（外部文件为：LAVVideo.ax）系列和 madVR - 勾选其右边的“强制使用” - 确定</p><p>设置 - 视频 - 视频渲染器选 Madshi 视频渲染；设置 - 音频 - 默认输出设备选内置 WASAPI 音频渲染器</p><p>madVR 和 xysubFilter 的安装都是进入其目录以管理员身份执行 install.bat</p>
+</div>
 </div>
 <tr><td>PowerToys</td><td>Win实用工具集 </td><td><a href="https://github.com/microsoft/PowerToys">📥</a></td></tr>
 <tr><td>Process Explorer</td><td>进程管理</td><td><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer">📥</a></td></tr>
@@ -354,9 +355,13 @@ remove.apply(this, items)</code></pre><li></li>高级 - 动作类型：菜单中
 <tr><td>SolveigMM VS</td><td>无损视频剪辑</td><td><a href="https://www.solveigmm.com/zh/">📥</a></td></tr>
 <tr><td>SpeedCrunch</td><td>计算器</td><td><a href="https://speedcrunch.org">📥</a> <a>🐧</a></td></tr>
 <tr><td>TaskbarX</td><td>任务栏居中</td><td><a href="https://github.com/ChrisAnd1998/TaskbarX">📥</a></td></tr>
-<tr><td>Telegram</td><td><a href="#tg">隐私通讯</a></td><td><a href="https://telegram.org">📥</a> <a href="https://masonme.github.io/2020/06/11/telegram-group/">⚓</a> <a href="https://tgtw.cc">⚓</a> <a href="https://metogram.com">⚓</a></td></tr>
-<div class="dialog-box" id="tg"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
-<h2>机器人：inline 模式（对话框输入）</h2><li>@gif – GIF 搜索</li><li>@vid – 视频搜索</li><li>@pic – 搜 Yandex 图片</li><li>@bing – 搜 Bing 图片</li><li>@wiki – 搜 维基百科</li><li>@imdb –  搜 IMDB</li><li>@youtube - 搜  YouTube</li><li>@music - 音乐搜索</li><li>@foursquare – 寻找并发送聚会地点</li><li>@sticker – 基于emoji查找并发送贴纸</li>
+<tr><td>Telegram</td><td><a href="#tg">隐私通讯</a></td><td><a href="https://telegram.org">📥</a></td></tr>
+<div class="dialog-box" id="tg"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>机器人：inline 模式（对话框输入）</h2><li>@gif – GIF 搜索</li><li>@vid – 视频搜索</li><li>@pic – 搜 Yandex 图片</li><li>@bing – 搜 Bing 图片</li><li>@wiki – 搜 维基百科</li><li>@imdb –  搜 IMDB</li><li>@youtube - 搜  YouTube</li><li>@music - 音乐搜索</li><li>@foursquare – 寻找并发送聚会地点</li><li>@sticker – 基于emoji查找并发送贴纸</li><h2>导航</h2>
+<a href="https://tgtw.cc">tgtw</a>、
+<a href="https://combot.org/telegram/top/chats">Combot</a>、
+<a href="https://telegramindex.com">Analytics</a>、
+<a href="https://masonme.github.io/2020/06/11/telegram-group">Masonme-tg</a>、
+<a href="https://metogram.com">Metogram</a>
 </div>
 </div>
 <tr><td>ToDesk</td><td>远程控制</td><td><a href="https://www.todesk.com">📥</a></td></tr>
@@ -445,9 +450,9 @@ bar | bar baz | baz | az
 <code>"|http://example.com、example.com|", </code> 起止规则，意思是以 http://example.com 开始和以 example.com 结束的地址都走代理
 </div>
 </div>
-<tr><td>Ventoy</td><td>多系统启动盘</td><td><a href="https://www.ventoy.net">📥</a></td></tr>
+<tr><td>Ventoy</td><td>多系统启动U盘</td><td><a href="https://www.ventoy.net">📥</a> <a href="https://shimo.im/docs/CHwxDjqqkDYqyrDJ#anchor-init">📝</a></td></tr>
 <tr><td>VideoProc</td><td>视频编辑</td><td><a href="https://www.videoproc.com/zh/">📥</a> <a>💰</a></td></tr><!-- DAI6V-2JTCH-HFTXP-TVYGF -->
-<tr><td>VirtualBox</td><td><a href="#virtualBox">虚拟机</a></td><td><a href="https://www.virtualbox.org">📥</a> <a href="https://www.vbox.me">🔧</a></td></tr>
+<tr><td>VirtualBox</td><td><a href="#virtualBox">虚拟机</a></td><td><a href="https://www.virtualbox.org">📥</a> <a href="https://www.vbox.me">🔧</a> <a href="https://www.android-x86.org">💾</a></td></tr>
 <div class="dialog-box" id="virtualBox"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
 <h1>快捷键</h1>虚拟机快捷键采用“Host 键”（主机键），可以自定义 Host 键（默认：右 Ctrl 键）：<br><br><li>Host+Home：显示控制菜单</li><li>Host+F：全屏模式</li><li>Host+L：无缝模式</li><li>Host+C：自动缩放模式</li><li>Host+A：自动调整窗口</li><li>Host+S：当前设置</li><li>Host+R：重启</li><li>Host+H：正常关机</li><li>Host+P：暂停</li><li>Host+Q：退出</li><li>Host+N：运行状态</li><li>Host+T：生成系统快照</li><li>Host+E：屏幕截图</li><li>Host+Del：Ctrl+Alt+Del</li><h2>开机自动无界面启动</h2>右键要启动的虚拟机，点创建左面快捷方式，然后在桌面的快捷方式右键属性，在目标一栏结尾插入：--type headless，然后将其放到启动文件夹里即可
 </div>
@@ -457,7 +462,7 @@ bar | bar baz | baz | az
 <tr><td>Windows File Recovery</td><td>文件恢复</td><td><a href="https://www.microsoft.com/en-us/p/windows-file-recovery/9n26s50ln705#activetab=pivot:overviewtab">🎫</a></td></tr>
 <tr><td>Windows Terminal</td><td>微软终端</td><td><a href="https://github.com/microsoft/terminal">📥</a> <a href="https://ohmyposh.dev">🔩</a> <a href="https://atomcorp.github.io/themes/">🎨</a> <a href="https://www.hanselman.com/blog/HowToMakeAPrettyPromptInWindowsTerminalWithPowerlineNerdFontsCascadiaCodeWSLAndOhmyposh.aspx">📝</a></td></tr>
 <tr><td>WinMerge</td><td>文本差异比较</td><td><a href="https://winmerge.org">📥</a></td></tr>
-<tr><td>WinSCP</td><td>SSH/FTP客户端</td><td><a href="https://winscp.net">📥</a></td></tr>
+<tr><td>WinSCP</td><td>SFTP客户端</td><td><a href="https://winscp.net">📥</a></td></tr>
 <tr><td>Wise Cleaner</td><td title="系列软件包括：清理磁盘和注册表、文件隐藏和恢复误删等... 官网查看">Wise系列</td><td><a href="https://www.wisecleaner.com.cn">📥</a></td></tr>
 <tr><td>WizTree</td><td>列出系统大文件</td><td><a href="https://wiztreefree.com">📥</a></td></tr>
 <tr><td>万兴优转</td><td>视频转换</td><td><a href="https://www.wondershare.cn">📥</a></td></tr>
@@ -465,7 +470,7 @@ bar | bar baz | baz | az
 <tr><td>Xdown</td><td>下载工具</td><td><a href="https://xdown.org">📥</a></td></tr>
 <tr><td>Xlight FTP Server</td><td>FTP文件传输</td><td><a href="http://www.xlightftpd.com/cn">📥</a></td></tr>
 <tr><td>XnConvert</td><td>批量处理图片</td><td><a href="https://www.xnview.com/en/xnconvert/">📥</a></td></tr>
-<tr><td>Xray</td><td>上网代理</td><td><a href="https://github.com/XTLS/Xray-core">📥</a> <a href="https://github.com/proxysu/ProxySU">💻</a></td></tr>
+<tr><td>Xray</td><td>上网代理</td><td><a href="https://github.com/XTLS/Xray-core">📥</a> <a href="https://github.com/proxysu/ProxySU">💻</a> <a href="https://github.com/klzgrad/naiveproxy">💽</a></td></tr>
 <tr><td>Xshell</td><td>全能SSH终端</td><td><a href="https://www.netsarang.com/zh/">📥</a> <a href="https://www.hostbuf.com" title="Finalshell">💽</a></td></tr>
 <tr><td>You-get</td><td>视频下载</td><td><a href="https://you-get.org">📥</a></td></tr>
 <tr><td>Youtube-dl</td><td><a href="#ytdl">视频下载</a></td><td><a href="https://yt-dl.org">📥</a> <a href="https://github.com/blackjack4494/youtube-dlc">📥</a></td></tr>
@@ -479,18 +484,23 @@ bar | bar baz | baz | az
 <tr><td>VeraCrypt</td><td>专业文件加密</td><td><a href="https://www.veracrypt.fr">📥</a> <a>🐧</a></td></tr>
 <tr><td>ZoomIt</td><td>屏幕放大注释</td><td><a href="https://docs.microsoft.com/zh-cn/sysinternals/downloads/zoomit">📥</a></td></tr>
 <tr><td class="h1"><a name="tips1">Linux</a></td><td></td><td></td></tr>
+<tr><td>Archlinux Packages</td><td>官方软件包库</td><td><a href="https://archlinux.org/packages/">🏠</a> <a href="https://aur.archlinux.org/packages/">🏠</a></td></tr>
 <tr><td>Audacious</td><td>音乐播放器<td><a href="https://audacious-media-player.org">🐧</a></td></tr>
 <tr><td>Bench.sh</td><td>VPS性能测试</td><td><a href="https://bench.sh">🐧</a></td></tr>
 <tr><td>Cadaver</td><td>WebDAV CLI</td><td><a>🐧</a></td></tr>
 <tr><td>Davfs2</td><td><a href="#davfs2">WebDAV挂载</a></td><td><a>🐧</a></td></tr>
-<div class="dialog-box" id="davfs2"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>挂载 WebDAV</h2><pre><code>mkdir webdav  # 建立个文件夹用来挂载
-mount -t davfs https://uno.teracloud.jp/dav/ ~/webdav  # 挂载到家目录下的 webdav 文件夹</code></pre>注：设置开机自动并登录：修改 /etc/davfs2/davfs2.conf 文件，将 use_lock 注释去掉，并将值修改为 0 ，然后在修改 /etc/davfs2/secrets 文件，末尾添加 <code>WebDAV地址 用户名 密码</code>，最后在 /etc/fstab 末尾添加 WebDav地址 /mnt/webdav davfs defaults 0 0 
+<div class="dialog-box" id="davfs2"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>挂载 WebDAV</h2>mkdir webdav # 建立个文件夹用来挂载<br>
+mount.davfs https://uno.teracloud.jp/dav/ ~/webdav # 挂载到家目录下的 webdav 目录
+<h3>设置开机自动并登录</h3>修改 /etc/davfs2/davfs2.conf 文件，将 use_lock 注释去掉，并将值修改为 0<br>修改 /etc/davfs2/secrets 文件，末尾添加 <code>WebDAV地址 用户名 密码</code><br>修改 /etc/fstab 文件，在末尾添加 WebDav地址 /mnt/webdav davfs defaults 0 0 
 </div>
 </div>
+<tr><td>duf</td><td>查看磁盘空间</td><td><a href="https://github.com/muesli/duf">🐧 📥</a></td></tr>
+<tr><td>FileZilla</td><td>SFTP客户端</td><td><a href="https://filezilla-project.org">🐧</a></td></tr>
+<tr><td>Filelight</td><td>可视化硬盘容量</td><td><a href="https://utils.kde.org/projects/filelight/">🐧</a></td></tr>
 <tr><td>Flameshot</td><td>屏幕截图</td><td><a href="https://github.com/lupoDharkael/flameshot">🐧</a></td></tr>
-<tr><td>FileZilla</td><td>SFTP连接</td><td><a href="https://filezilla-project.org">🐧</a></td></tr>
 <tr><td>FSearch</td><td>文件搜索</td><td><a href="https://cboxdoerfer.github.io/fsearch">🐧</a></td></tr>
 <tr><td>fzf</td><td>文件搜索</td><td><a href="https://github.com/junegunn/fzf">🐧</a></td></tr>
+<tr><td>GParted</td><td>分区工具</td><td><a href="https://gparted.org">🐧</a></td></tr>
 <tr><td>LibreOffice</td><td>办公套件</td><td><a href="https://www.libreoffice.org">🐧</a></td></tr>
 <tr><td>Lrzsz</td><td>文件传输</td><td><a>🐧</a></td></tr>
 <tr><td>ImageMagick</td><td><a href="#imagemagick">图像压缩</a></td><td><a href="https://github.com/ImageMagick/ImageMagick">🐧</a> <a>📥</a></td></tr>
@@ -502,6 +512,7 @@ mount -t davfs https://uno.teracloud.jp/dav/ ~/webdav  # 挂载到家目录下�
 </div>
 </div>
 <tr><td>Jpegoptim</td><td>压缩图片</td><td><a href="https://www.shangmayuan.com/a/f52cb35c3c6249aa8461fdcd.html">🐧</a></td></tr>
+<tr><td>Micro</td><td>文本编辑器</td><td><a href="https://micro-editor.github.io">🐧</a> <a >📥</a></td></tr>
 <tr><td>MPV</td><td><a href="#mpv">视频播放器</a></td><td><a href="https://mpv.io">🐧</a> <a>📱</a></td></tr>
 <div class="dialog-box" id="mpv"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>MPV 配置</h2>配置文件位置：C:\mpv\portable_config\mpv.conf<br><br>hwdec=no # no 为关闭软解，auto 为自动<br>no-border # 去掉标题栏<br>no-osd-bar # 去掉快进时的进度栏<br>priority=high # 高优先级<br>profile=gpu-hq # 高清渲染<br>eometry=65% # 打开时窗口的大小百分比
 <br>#save-position-on-quit # 记忆上次播放的位置<br>keep-open=yes # 播放结束后不退出<br>volume=0 # 启动后的默认音量<br>screenshot-directory=~~desktop/ # 截图保存路径<br>screenshot-jpg-quality=100 # 截屏 jpeg 质量（0-100）
@@ -516,17 +527,27 @@ mount -t davfs https://uno.teracloud.jp/dav/ ~/webdav  # 挂载到家目录下�
 <tr><td>Proxychains</td><td>全局代理</td><td><a href="https://github.com/haad/proxychains">🐧</a> <a href="https://zhuanlan.zhihu.com/p/46973701">📝</a></td></tr>
 <tr><td>Qimgv</td><td>图像查看浏览</td><td><a href="https://github.com/easymodo/qimgv">🐧</a></td></tr>
 <tr><td>Qv2ray</td><td>上网代理</td><td><a href="https://github.com/Qv2ray/Qv2ray">🐧</a></td></tr>
-<tr><td>RClone</td><td>网盘挂载</td><td><a href="http://rclone.org">🐧</a></td></tr>
+<tr><td>Rclone</td><td><a href="#rclone">网盘挂载</a></td><td><a href="http://rclone.org">🐧</a> <a href="https://github.com/astrada/google-drive-ocamlfuse">💽</a></td></tr>
+<div class="dialog-box" id="rclone"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>命令</h2>rclone config # 设置配置<br>rclone copy /root/test gdrive:test # 上传<br>rclone copy gdrive:test /root/test # 下载<br>rclone lsd gdrive: # 列出谷歌网盘目录<br>rclone ls gdrive: # 列出谷歌网盘所有文件<br>rclone ls gdrive:test # 列出 test 目录文件<br>rclone lsl gdrive:test # 显示上传时间<h2>挂载</h2>rclone mount gdrive:test /root/googledrive & # 挂载谷歌网盘的 test 目录到本地 /root/googledrive 目录<br>df -h # 查看挂载结果，可以看到大小和路径<br>fusermount -qzu /root/googledrive # 卸载挂载
+<br><a href="https://shimo.im/docs/dtK8yXHgTKYjq8wK#anchor">...</a></div></div>
+<tr><td>Rename</td><td>批量重命名</td><td><a>🐧</a></td></tr>
+<tr><td>Rsync</td><td>文件同步</td><td><a>🐧</a></td></tr>
 <tr><td>SimpleScreenRecorder</td><td>区域录屏</td><td><a href="https://www.maartenbaert.be/simplescreenrecorder/">🐧</a></td></tr>
 <tr><td>Thunderbird</td><td>邮件客户端</td><td><a href="https://www.thunderbird.net">🐧</a></td></tr>
+<tr><td>Trash-cli</td><td>回收站 CLI</td><td><a href="https://github.com/andreafrancia/trash-cli">🐧</a></td></tr>
+<tr><td>uGet</td><td>下载工具</td><td><a href="https://ugetdm.com">🐧</a></td></tr>
 <tr><td class="h1"><a name="tips2"></a>Development</td><td></td><td></td></tr>
 <tr><td>ADB</td><td>安卓调试</td><td><a href="https://developer.android.com/studio/releases/platform-tools">📥</a> <a href="https://atmb.top">🎫</a></td></tr>
 <tr><td>Cit</td><td>GitHub下载加速</td><td><a href="https://github.com/solider245/cit">📥</a></td></tr>
-<tr><td>Git</td><td>分布式版本控制</td><td><a href="https://git-scm.com">📥</a> <a href="https://tortoisegit.org">🎫</a></td></tr>
+<tr><td>Git</td><td><a href="#git">分布式版本控制</a></td><td><a href="https://git-scm.com">📥</a> <a href="https://tortoisegit.org">🎫</a></td></tr>
+<div class="dialog-box" id="git"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h3>设置 Windows 环境变量</h3>
+按 Win 键，输入 en 选“编辑系统环境变量”，点高级 - 环境变量 - 系统变量分类中的 Path - 编辑 - 新建，输入 C:\Program Files\Git\bin（即 git 目录下 bin 文件夹的位置），确定保存。
+</div></div>
 <tr><td>Navicat</td><td>数据库管理</td><td></td></tr>
 <tr><td>Node.js</td><td><a href="#nodejs">Node.js 框架</a></td><td><a href="https://nodejs.org">📥</a></td></tr>
 <div class="dialog-box" id="nodejs"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
-npm -v # 查看版本<br>npm help # 查看快速帮助<br>npm install -g npm # 更新 npm 包管理<br>npm install -g fanyi # 安装<a href="https://github.com/afc163/fanyi">翻译</a>软件包<br><br>npm config ls # 查看 npm 的安装信息及默认路径（prefix 后面的为下载路径）<br>npm config set cache "D:\TempDate\nodedata\cache" # 更改默认缓存路径<br>npm config set prefix "D:\TempDate\nodedata\download" # 更改默认下载路径<br>
+npm -v # 查看版本<br>npm help # 查看快速帮助<br>npm install -g npm # 更新 npm 包管理<br>npm install -g fanyi # 安装<a href="https://github.com/afc163/fanyi">翻译</a>软件包<br>
+npm list -g --depth 0 # 列出已安装的包<br><br>npm config ls # 查看 npm 的安装信息及默认路径（prefix 后面的为下载路径）<br>npm config set cache "D:\TempDate\nodedata\cache" # 更改默认缓存路径<br>npm config set prefix "D:\TempDate\nodedata\download" # 更改默认下载路径<br>
 <h3>软件包推荐</h3><a href="https://github.com/websperts/tinypng-cli">TinyPNG</a> 图片压缩服务（申请API，在家目录创建 .tinypng 文件并将API写入）<br><a href="https://github.com/splash-cli/splash-cli">Splash</a> 获取 Unsplash 图片编辑器命令：<br>splash --id [图片ID] # 下载指定图片并设置地址<br>splash --collection [收集集ID] # 从收集中随机获取图片<br><a href="https://github.com/sindresorhus/speed-test">speed-test</a> 网速测试
 </div></div>
 <tr><td>Notepad++</td><td><a href="#npp">代码编程器</a></td><td><a href="https://notepad-plus-plus.org">📥</a></td></tr>
@@ -535,6 +556,7 @@ npm -v # 查看版本<br>npm help # 查看快速帮助<br>npm install -g npm # �
 </div>
 </div>
 <tr><td>PHPStudy</td><td>PHP环境</td><td><a href="http://www.phpstudy.net">📥</a></td></tr>
+<tr><td>Powershell 7</td><td>Shell 解析器</td><td><a href="https://github.com/PowerShell/PowerShell">📥</a></td></tr>
 <tr><td>Python</td><td><a href="#python">编程语言</a></td><td><a href="https://www.python.org">📥</a></td></tr>
 <div class="dialog-box" id="python"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
 <h2>常用命令</h2>python -V # 查看版本号<br>pip --version # 查看 pip 版本号<br>python -m pip install -U pip # Windows 下升级 pip<br>pip install --upgrade pip # Linux & MacOS下 升级 pip<br>pip search PackageName # 搜索包<br>pip install PackageName # 安装包<br>pip install --upgrade you-get # 升级包<br>pip uninstall PackageName # 卸载包<br>pip show PackageName # 显示包信息<br>pip list # 列出所有软件包，加 -o 参数可查看能升级的包<br>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple PackageName # 临时用清华开源软件镜像安装包<br><h3>导出包列表以便重新部署环境</h3>pip freeze > requirements.txt # 导出已安装包列表到文件<br>pip install -r requirements.txt # 根据文件进行包安装<p>注：：pip freeze 导出的比 pip list 的少几个，因为无法卸载的包不导出，如果一定要导出所有包，可以加上 -all 参数</p><h2>Python 获取流媒体直播源</h2><li>1. 访问<a href="https://github.com/wbt5/real-url">项目</a>，下载你要获取的平台的 .py 文件</li><li>2. 查看该文件代码中的 import 所需模块</li><li>3. 以斗鱼为例，先安装模块：<br><code>pip install PyExecJS</code><br><code>pip install requests</code></li><li>4. 在该目录下运行脚本：python .\douyu.py</li>
@@ -542,14 +564,14 @@ npm -v # 查看版本<br>npm help # 查看快速帮助<br>npm install -g npm # �
 </div>
 <tr><td>Scoop</td><td><a href="#scoop">软件包管理</a></td><td><a href="https://scoop.sh">📥</a> <a href="https://github.com/rasa/scoop-directory">⚓</a> <a href="https://gitee.com/squallliu/scoop">⚓</a></td></tr>
 <div class="dialog-box" id="scoop"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
-<h1>我的软件列表</h1>7zip、aria2、ffmpeg、hugo、joplin、obsidian、pandoc、qbittorrent、telegram、typora、v2ray、v2rayn、winscp、youtube-dl、
+<h1>我的软件列表</h1>7zip、aria2、ffmpeg、hugo、joplin、obsidian、pandoc、qbittorrent、telegram、typora、v2ray、v2rayn、youtube-dl、
 <p>下次装：CopyQ、Git、OBS-Studio</p><h3>Scoop 目录：C:\Users\nanji\scoop</h3><li>apps 软件的安装目录</li><li>shims 目录会被加到用户变量 Path 里</li><li>persist 目录保存了已安装软件的配置文件</li><hr><a href="https://www.yuque.com/nanjishen/smr0zt/bl00yf#6bfoK">...</a>
 </div>
 </div>
 <tr><td>Sublime</td><td>代码编辑器</td><td><a href="https://www.sublimetext.com">📥</a></td></tr>
 <tr><td>VS C++</td><td>C++开发环境</td><td><a href="https://visualstudio.microsoft.com/zh-hans/vs/">📥</a></td></tr>
 <tr><td>VS Code</td><td>代码编辑器</td><td><a href="https://code.visualstudio.com">📥</a></td></tr>
-<tr><td>Winget-CLI</td><td>软件包管理器</td><td><a href="https://github.com/microsoft/winget-cli">📥</a> <a href="https://github.com/microsoft/winget-pkgs">⚓</a> <a href="https://docs.microsoft.com/zh-cn/windows/package-manager/">📝</a></td></tr>
+<tr><td>Winget-CLI</td><td>软件包管理</td><td><a href="https://github.com/microsoft/winget-cli">📥</a> <a href="https://github.com/microsoft/winget-pkgs">⚓</a> <a href="https://docs.microsoft.com/zh-cn/windows/package-manager/">📝</a></td></tr>
 <tr><td class="h1"><a name="tips3">Service Build</a></td><td></td><td></td></tr>
 <tr><td>Avatar-Maker</td><td>头像生成</td><td><a href="https://github.com/favrora/Avatar-Maker">📥</a></td></tr>
 <tr><td>BT宝塔面板</td><td><a href="#btpanel">服务器管理</a></td><td><a href="https://www.bt.cn">📥</a> <a href="https://openlitespeed.org">💽</a></td></tr>
@@ -561,12 +583,13 @@ npm -v # 查看版本<br>npm help # 查看快速帮助<br>npm install -g npm # �
 Bt-Panel: http://192.168.1.1:8888/xxxxxxxx
 username: xxxxxx
 password: xxxxxx</code></pre>
-接着选择 LNMP，提高 PHP 版本后点“一键安装”完成。<h2>安全设置</h2>面板设置 - 面板端口 - 修改如：60606，<a href="https://www.bt.cn/bbs/thread-40037-1-1.html">放行端口方法</a><br>面板设置 - 面板用户、面板密码、别名：nanji、53e013538、南极堡垒<br>安全 - 修改 SSH 端口，改成除 22 以外的端口，例如 22122，然后在防火墙关闭没必要的端口<br><i>备注：修改端口号后 SSH 命令使用：<code>ssh -l root 192.168.1.1 -p 22122</code></i><br>安全 - 启用禁 ping，可以避免有人没事干 ping 你的服务器<br>监控 - 开启监控（低配勿开），可以生成日志，能查看运行状况，如果被入侵，方便查看问题<br>安装 Nginx 或 Apache 防火墙，装好后设定 cc 攻击规则、恶意 useragent 名单、POST 渗透过滤、GET 渗透过滤、Cookie 渗透过滤、恶意扫描过滤、恶意 HEAD 请求、恶意文件上传过滤、禁止PHP脚本。该插件为收费插件，可以使用最上面的优惠券试用一个月。建站安全全靠它。<br>nginx/apache 防火墙扫描 webshell 木马。很多网上下载来的程序都带后门，建议初次安装的时候就查杀一下。<br><h2>使用</h2>新建网站： 网站 - 添加站点：输入域名，数据库设置好用户名和密码（用户名也是数据库名）；接着点击左面导航的数据库 - root密码，查看并记录一下密码备用
+接着选择 LNMP，提高 PHP 版本后点“一键安装”完成。<h2>安全设置</h2>面板设置 - 面板端口 - 修改如：60606，<a href="https://www.bt.cn/bbs/thread-40037-1-1.html">放行端口方法</a><br>面板设置 - 面板用户、面板密码、别名<br>安全 - 修改 SSH 端口，改成除 22 以外的端口，例如 22122，然后在防火墙关闭没必要的端口<br><i>备注：修改端口号后 SSH 命令使用：<code>ssh -l root 192.168.1.1 -p 22122</code></i><br>安全 - 启用禁 ping，可以避免有人没事干 ping 你的服务器<br>监控 - 开启监控（低配勿开），可以生成日志，能查看运行状况，如果被入侵，方便查看问题<br>安装 Nginx 或 Apache 防火墙，装好后设定 cc 攻击规则、恶意 useragent 名单、POST 渗透过滤、GET 渗透过滤、Cookie 渗透过滤、恶意扫描过滤、恶意 HEAD 请求、恶意文件上传过滤、禁止PHP脚本。该插件为收费插件，可以使用最上面的优惠券试用一个月。建站安全全靠它。<br>nginx/apache 防火墙扫描 webshell 木马。很多网上下载来的程序都带后门，建议初次安装的时候就查杀一下。<br><h2>使用</h2>新建网站： 网站 - 添加站点：输入域名，数据库设置好用户名和密码（用户名也是数据库名）；接着点击左面导航的数据库 - root密码，查看并记录一下密码备用
 </div>
 </div>
-<tr><td>Bitwarden</td><td>密码管理</td><td><a href="https://bitwarden.com">📥</a> <a href="https://github.com/dani-garcia/bitwarden_rs">🚢</a></td></tr>
+<tr><td>Bitwarden</td><td>密码管理</td><td><a href="https://bitwarden.com">📥</a> <a href="https://github.com/dani-garcia/vaultwarden">🚢</a></td></tr>
 <tr><td>Directory-Listing</td><td>PHP网盘</td><td><a href="https://www.evoluted.net/thinktank/web-development/php-directory-listing-script">📥</a></td></tr>
-<tr><td>Docker</td><td><a href="#docker">容器引擎</a></td><td><a href="https://www.docker.com">📥</a></td></tr>
+<tr><td>Discourse</td><td>开源论坛</td><td><a href="https://www.discourse.org">📥</a></td></tr>
+<tr><td>Docker</td><td><a href="#docker">容器引擎</a></td><td><a href="https://www.docker.com">📥</a> <a href="https://github.com/portainer/portainer">🕹</a></td></tr>
 <div class="dialog-box" id="docker"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>使用</h2>docker version # 查看版本<br>docker info # 查看系统信息<h2>镜像命令</h2>docker images # 查看所有已有镜像<br>docker search mysql # 搜索镜像<br>docker pull mysql # 下载镜像<br>docker pull mysql:5.7 # 下载指定版本镜像<br>docker rmi ID/name # 删除镜像<br>docker rmi 容器id # 删除指定镜像<br>docker rmi $(docker images -aq) # 删除全部镜像<h2>容器命令</h2>注：有了镜像才可以创建容器<br><br>docker run -参数 image # 新建容器并启动，参数说明：<br>-d # 后台方式运行<br>--name rsshub # 容器名字<br>-p 8080:8080 # 指定主机端口:容器端口，不加为随机端口<br>-it # 使用交互方式运行，进入容器查看内容<br>docker run -it centos /bin/bash # 测试，启动并进入容器<br><br>docker start 容器id # 启动容器<br>docker restart 容器id # 重启容器<br>docker stop 容器id # 停止运行的容器<br>docker kill 容器id # 停止当前的容器<br><br>docker rm 容器id # 删除指定容器，需要先停止运行<br>docker rm $(docker ps -aq) # 删除所有的容器<br>docker ps -a -q|xargs docker rm # 删除所有的容器
 </div></div>
 <tr><td>Docsify</td><td>静态文档</td><td><a href="https://docsify.js.org">📥</a></td></tr>
@@ -574,10 +597,11 @@ password: xxxxxx</code></pre>
 <div class="dialog-box" id="dokuwiki">
 <div class="dialog-con">
 <a href="" class="dialog-close">❌</a>
-<h1>DokuWiki</h1><h3>安装配置</h3>运行安装：浏览器访问 dokuwiki/install.php中国时区：conf 目录下添加 local.protected.php 文件，写入如下内容：<pre>&lt;?php&gt;date_default_timezone_set("Asia/Chongqing");?&gt;</pre><h3>刷新页面缓存</h3>在页面的url后加&amp;purge=true导出文件：在页面url后加&amp;do=export_xhtml（支持raw、xhtml、xhtmlbody）升级备份等需要备份此三个文件：<li>配置：conf/local.php</li><li>权限：conf/acl.auth.php</li><li>用户：conf/users.auth.php</li>（如果，将文件名保存成类似conf/local.protected.php每次在在管理后台保存配置时，就不会覆盖 *.protected.php 中的配置）<h3>配置设置：</h3><li>showuseras 显示用户为：建议选用户全名，这就不会泄露用户登录帐号</li><li>gzip_output 对 xhtml 使用 gzip 内容编码：开启</li><li>send404 发送 "HTTP 404/页面没有找到" 错误信息给不存在的页面：开启</li><li>dnslookups 查询主机名：建议禁用</li><h3>侧边栏配置</h3><li>配置设置里sidebar项写侧边栏页面路径和名称（默认sidebar）</li><li>创建这个页面（比如建立一个文本文件名为sidebar，侧边栏就出来了）</li>（当同级命名空间下有相应的侧边栏页面时，则使用此页面）</p><h3>推荐插件</h3><li><a href="https://www.dokuwiki.org/plugin%3Aindexmenu">IndexMenu Plugin：侧边栏索引导航</a></li><li><a href="https://www.dokuwiki.org/plugin:addnewpage">Add New Page Plugin：新建页面</a></li><li><a href="https://www.dokuwiki.org/plugin:move">Move Plugin： 移动页面和命名空间</a></li><li><a href="https://www.dokuwiki.org/plugin:mdpage">Markdown Page Plugin：Markdown 显示</a></li><h3>备份方法：（DokuWiki不使用数据库，所以可以备份整个根目录）</h3><ul><li>data/pages：页面文档目录（主要备份）</li><li>data/meta：页面描述档（如谁创建，谁修订）</li><li>data/media：多媒体档 （图片，PDF等）</li><li>data/media_meta：多媒体描述档</li><li>data/attic：旧版本页面</li><li>data/media_attic：旧版本媒体档</li><li>conf：设定档</li><li>lib/plugins：插件目录（备份你要的）</li><li>Lib/tpl：模板目录</li></ul><p>（可以忽略：cache，index，locks， tmp文件夹）</p><h3>去掉logo方法</h3><p>修改\lib\tpl\dokuwiki\tpl_header.php，删除如下代码：</p><pre>$logoSize = array(); $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false $logoSize);</pre>
+<h1>DokuWiki</h1><h3>安装配置</h3>运行安装：浏览器访问 dokuwiki/install.php中国时区：conf 目录下添加 local.protected.php 文件，写入如下内容：<pre>&lt;?php&gt;date_default_timezone_set("Asia/Chongqing");?&gt;</pre><h3>创建新页面</h3>例如：网址为：域名/dokuwiki/doku.php?id=start # 这个 start 就是 pages 目录中的 start.txt 页面，因此可以将浏览器中的链接改名指向不存在的页面：域名/dokuwiki/doku.php?id=home:notes # pages 目录中 home 目录中的 notes.txt 页面，会提示不存在，接着点击右边的创建该页面按钮开始编辑该页<h3>刷新页面缓存</h3>在页面的url后加&amp;purge=true导出文件：在页面url后加&amp;do=export_xhtml（支持raw、xhtml、xhtmlbody）升级备份等需要备份此三个文件：<li>配置：conf/local.php</li><li>权限：conf/acl.auth.php</li><li>用户：conf/users.auth.php</li>（如果，将文件名保存成类似conf/local.protected.php每次在在管理后台保存配置时，就不会覆盖 *.protected.php 中的配置）<h3>配置设置：</h3><li>showuseras 显示用户为：建议选用户全名，这就不会泄露用户登录帐号</li><li>gzip_output 对 xhtml 使用 gzip 内容编码：开启</li><li>send404 发送 "HTTP 404/页面没有找到" 错误信息给不存在的页面：开启</li><li>dnslookups 查询主机名：建议禁用</li><h3>侧边栏配置</h3><li>配置设置里sidebar项写侧边栏页面路径和名称（默认sidebar）</li><li>创建这个页面（比如建立一个文本文件名为sidebar，侧边栏就出来了）</li>（当同级命名空间下有相应的侧边栏页面时，则使用此页面）</p><h3>推荐插件</h3><li><a href="https://www.dokuwiki.org/plugin%3Aindexmenu">IndexMenu Plugin：侧边栏索引导航</a></li><li><a href="https://www.dokuwiki.org/plugin:addnewpage">Add New Page Plugin：新建页面</a></li><li><a href="https://www.dokuwiki.org/plugin:move">Move Plugin： 移动页面和命名空间</a></li><li><a href="https://www.dokuwiki.org/plugin:mdpage">Markdown Page Plugin：Markdown 显示</a></li><h3>备份方法：</h3>由于不使用数据库，所以可以备份整个根目录，目录说明：<ul><li>data/pages：页面文档目录（主要备份）</li><li>data/meta：页面描述档（如谁创建，谁修订）</li><li>data/media：多媒体档 （图片，PDF等）</li><li>data/media_meta：多媒体描述档</li><li>data/attic：旧版本页面</li><li>data/media_attic：旧版本媒体档</li><li>conf：设定档</li><li>lib/plugins：插件目录（备份你要的）</li><li>Lib/tpl：模板目录</li></ul><p>（可以忽略：cache，index，locks， tmp文件夹）</p><h3>去掉logo方法</h3><p>修改\lib\tpl\dokuwiki\tpl_header.php，删除如下代码：</p><pre>$logoSize = array(); $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false $logoSize);</pre>
 </div>
 </div>
 <tr><td>Filebrowser</td><td>文件服务器</td><td><a href="https://github.com/filebrowser/filebrowser">📥</a></td></tr>
+<tr><td>Files Photo Gallery</td><td><a href="https://shimo.im/docs/yjccRxccRrWphH3w#anchor">服务器目录浏览</a></td><td><a href="https://files.photo.gallery">📥</a></td></tr>
 <tr><td>FreshRSS</td><td><a href="#freshrss">RSS阅读器</a></td><td><a href="https://freshrss.org">📥</a> <a href="https://rssforever.com">⚓</a> <a href="https://ttr.uneasy.win">⚓</a></td></tr>
 <div class="dialog-box" id="freshrss"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>设置</h2>
 显示：主题：Swage、内容宽度：中<br>阅读：文章显示：只显示未读、展开分类：所有分类、勾选默认显示收藏夹中所有文章<h2>插件</h2>目录为：extensions<br><br>下载 <a href="https://github.com/Eisa01/FreshRSS---Auto-Refresh-Extension">AutoRefresh</a> 插件，解压后将 xExtension-AutoRefresh 目录放置 FreshRSS 插件目录中，然后设置 - 扩展 - 启用该插件即可
@@ -586,13 +610,14 @@ password: xxxxxx</code></pre>
 用户账户 - 在 API 管理中设置访问密码，点击密码下面的链接后可以看到两种 API 链接，任选其一：<pre><code>http://域名/p/api/fever.php
 http://域名/p/api/greader.php</code></pre>手机用 FeedME，登录用户名是 FreshRSS 用户名，密码是前面设置的访问密码
 </div></div>
-<tr><td>Gridea</td><td>静态博客</td><td><a href="https://gridea.dev">📥</a></td></tr>
 <tr><td>Halo</td><td>静态博客</td><td><a href="https://halo.run">📥</a></td></tr>
-<tr><td>Hugo</td><td>静态博客</td><td><a href="https://gohugo.io">📥</a></td></tr>
-<tr><td>Jianavi</td><td>静态导航</td><td><a href="https://github.com/appexplore/jianavi">📥</a> <a href="https://github.com/5iux/sou">📥</a></td></tr>
+<tr><td>Hugo</td><td>静态博客</td><td><a href="https://gohugo.io">📥</a> <a href="https://github.com/JamesIves/github-pages-deploy-action">🔨</a> <a href="https://gridea.dev">💽</a></td></tr>
+<tr><td>Jianavi</td><td>静态导航</td><td><a href="https://github.com/appexplore/jianavi">📥</a> <a href="https://github.com/xjh22222228/nav">📥</a> <a href="https://github.com/5iux/sou">📥</a></td></tr>
 <tr><td>Neno</td><td>仿flomo</td><td><a href="https://github.com/Mran/neno">📥</a></td></tr>
 <tr><td>Nextcloud</td><td>云盘网盘</td><td><a href="https://nextcloud.com">📥</a></td></tr>
+<tr><td>Oneinstack</td><td>一键LNMP建站</td><td><a href="https://oneinstack.com">📥</a></td></tr>
 <tr><td>PrivateBin</td><td>阅后即焚</td><td><a href="https://privatebin.info">📥</a></td></tr>
+<tr><td>Question2Answer</td><td>开源问答平台</td><td><a href="https://github.com/q2a/question2answer">📥</a></td></tr>
 <tr><td>RSSHub</td><td><a href="#rsshub">RSS订阅生成</a></td><td><a href="https://docs.rsshub.app ">📥</a></td></tr>
 <div class="dialog-box" id="rsshub"><div class="dialog-con"><a href="" class="dialog-close">❌</a><h2>常用</h2>https://rsshub.app/smzdm/keyword/关键字 # 什么值得买<br>https://rsshub.app/youtube/channel/ID # YouTube 频道<br>https://rsshub.app/telegram/channel/用户名 # TG 频道<br>https://rsshub.app/twitter/user/ID # Twitter 用户<br>https://rsshub.app/xueqiu/stock_info/号/news # 雪球股票
 <h2>参数</h2>?filter_title=要包含的关键字<br>?filterout_title=不要包含的关键字
@@ -669,11 +694,12 @@ $exclude_items = array(
 <tr><td>Free SS</td><td>VPN</td><td><a href="https://play.google.com/store/apps/details?id=com.mika.yangvpn">📱</a></td></tr>
 <tr><td>Hacker's Keyboard</td><td>电脑布局键盘</td><td><a href="https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard">📱</a></td></tr>
 <tr><td>i简记</td><td>记账工具</td><td><a href="https://play.google.com/store/apps/details?id=com.xinran.iviki">📱</a></td></tr>
-<tr><td>imToken</td><td>加密货币钱包</td><td><a>📱</a> <a href="https://www.tokenpocket.pro">💽</a> <a href="https://metamask.io">💽</a> <a href="https://bitpie.com">💽</a></td></tr>
+<tr><td>imToken</td><td>加密货币钱包</td><td><a>📱</a> <a href="https://www.tokenpocket.pro">💽</a> <a href="https://metamask.io">💽</a> <a href="https://bitpie.com">💽</a> <a href="https://trustwallet.com">💽</a></td></tr>
 <tr><td>Inoreader</td><td>RSS订阅</td><td><a>📱</a></td></tr>
 <tr><td>InShot</td><td>视频剪辑</td><td><a href="https://play.google.com/store/apps/details?id=com.camerasideas.instashot">📱</a></td></tr>
 <tr><td>IPTV Pro</td><td>直播源播放器</td><td><a href="https://play.google.com/store/apps/details?id=ru.iptvremote.android.iptv">📱</a></td></tr>
 <tr><td>简单水印</td><td>图片水印</td><td><a href="https://github.com/rosuH/EasyWatermark">📱</a></td></tr>
+<tr><td>极简时钟-番茄钟</td><td>屏保时钟</td><td><a href="https://play.google.com/store/apps/details?id=com.mad.zenflipclock">📱</a></td></tr>
 <tr><td>Keepass2Android</td><td>密码管理</td><td><a>📱</a></td></tr>
 <tr><td>口袋画板</td><td>画图工具</td><td><a href="https://play.google.com/store/apps/details?id=org.catrobat.paintroid">📱</a></td></tr>
 <tr><td>List My Apps</td><td>导出应用列表</td><td><a href="https://play.google.com/store/apps/details?id=de.onyxbits.listmyapps">📱</a></td></tr>
@@ -691,6 +717,7 @@ $exclude_items = array(
 <tr><td>色采</td><td>配色取色</td><td><a href="https://play.google.com/store/apps/details?id=com.wizeyes.colorcapture">📱</a></td></tr>
 <tr><td>Screen Recorder</td><td>屏幕录制</td><td><a href="https://play.google.com/store/apps/details?id=com.kimcy929.screenrecorder">📱</a></td></tr>
 <tr><td>Smart AppLock</td><td>应用锁</td><td><a href="https://play.google.com/store/apps/details?id=com.sp.protector.free">📱</a></td></tr>
+<tr><td>Snapseed</td><td>图片编辑</td><td><a href="https://play.google.com/store/apps/details?id=com.niksoftware.snapseed">📱</a></td></tr>
 <tr><td>Speedtest</td><td>网速测试</td><td>📱</td></tr>
 <tr><td>Spotify</td><td title="QQ音乐、网易云音乐">在线音乐</td><td><a href=" https://play.google.com/store/apps/details?id=com.spotify.music">📱</a></td></tr>
 <tr><td>视频音频转换器</td><td>视频转音频</td><td><a href="https://play.google.com/store/apps/details?id=mp3videoconverter.videotomp3.videotomp3converter">📱</a></td></tr>
@@ -774,6 +801,7 @@ chmod +x ~/bin/termux-url-opener # 将脚本设为可执行文件<br>然后就�
 <h2>添加环境变量：</h2>用户变量 - 编辑 - 新建并添加：C:\Users\nanji\AppData\Local\MEGAcmd<br>终端执行：megacmdshell 来启动 Mega；执行 help 来查看命令帮助<h3>创建开机启动：</h3>新建 .vbs 文件并写入：<code>CreateObject("WScript.Shell").Run "C:\Users\nanji\AppData\Local\MEGAcmd\MEGAcmdServer.exe",0</code><br>然后放入启动文件夹里<h2>同步关联</h2>mkdir Mempad # 创建文件夹<br>sync C:/Mempad /Mempad # 将本地C盘下的 Mempad 目录和网盘根目录中的 Mempad 目录关联同步
 </div>
 </div>
+<tr><td>MetaMask</td><td>加密货币钱包</td><td><a href="https://metamask.io">🌐</a> <a>📱</a></td></tr>
 <tr><td>Momentum</td><td>新标签首屏</td><td><a href="https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca">🌐</a></td></tr>
 <tr><td>Multi-highlight</td><td>多关键字高亮</td><td><a href="https://chrome.google.com/webstore/detail/multi-highlight/pfgfgjlejbbpfmcfjhdmikihihddeeji">🌐</a></td></tr>
 <tr><td>Nimbus</td><td>截图和录屏</td><td><a href="https://chrome.google.com/webstore/detail/nimbus-screenshot-screen/bpconcjcammlapcogcnnelfmaeghhagj">🌐</a></td></tr>
@@ -804,7 +832,7 @@ chmod +x ~/bin/termux-url-opener # 将脚本设为可执行文件<br>然后就�
 <tr><td>Simple Allow Copy</td><td>破除复制限制</td><td><a href="https://chrome.google.com/webstore/detail/simple-allow-copy/aefehdhdciieocakfobpaaolhipkcpgc">🌐</a></td></tr>
 <tr><td>SimpRead</td><td>开启阅读模式</td><td><a href="https://chrome.google.com/webstore/detail/simpread-reader-view/ijllcpnolfcooahcekpamkbidhejabll">🌐</a></td></tr>
 <tr><td>SingleFile</td><td>网页保存</td><td><a href="https://chrome.google.com/webstore/detail/singlefile/mpiodijhokgodhhofbcjdecpffjipkle">🌐</a></td></tr>
-<tr><td>沙拉查词</td><td>聚合划词翻译</td><td><a href="https://chrome.google.com/webstore/detail/%E6%B2%99%E6%8B%89%E6%9F%A5%E8%AF%8D-%E8%81%9A%E5%90%88%E8%AF%8D%E5%85%B8%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/cdonnmffkdaoajfknoeeecmchibpmkmg">🌐</a></td></tr>
+<tr><td>沙拉查词</td><td>聚合划词翻译</td><td><a href="https://chrome.google.com/webstore/detail/%E6%B2%99%E6%8B%89%E6%9F%A5%E8%AF%8D-%E8%81%9A%E5%90%88%E8%AF%8D%E5%85%B8%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/cdonnmffkdaoajfknoeeecmchibpmkmg">🌐</a> <a href="https://chrome.google.com/webstore/detail/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/ikhdkkncnoglghljlkmcimlnlhkeamad">💽</a></td></tr>
 <tr><td>Smallpdf</td><td>在线PDF工具</td><td><a href="https://chrome.google.com/webstore/detail/smallpdf/ohfgljdgelakfkefopgklcohadegdpjf">🌐</a></td></tr>
 <tr><td>Snippyly</td><td>截图共享</td><td><a href="https://chrome.google.com/webstore/detail/snippyly/okdocmoamfmoeiifjhmgklgndmhaeaio">🌐</a></td></tr>
 <tr><td>书签侧边栏</td><td>书签管理</td><td><a href="https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh">🌐</a></td></tr>
@@ -817,6 +845,7 @@ chmod +x ~/bin/termux-url-opener # 将脚本设为可执行文件<br>然后就�
 <tr><td>Tampermonkey</td><td><a href="#tmonkey">油猴脚本</a></td><td><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">🌐</a> <a href="https://greasyfork.org">⚓</a> <a href="https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag">💽</a></td></tr>
 <div class="dialog-box" id="tmonkey"><div class="dialog-con"><a href="" class="dialog-close">❌</a>
 <h2>脚本</h2><a href="https://greasyfork.org/zh-CN/scripts/14178-ac-baidu-%E9%87%8D%E5%AE%9A%E5%90%91%E4%BC%98%E5%8C%96%E7%99%BE%E5%BA%A6%E6%90%9C%E7%8B%97%E8%B0%B7%E6%AD%8C%E5%BF%85%E5%BA%94%E6%90%9C%E7%B4%A2-favicon-%E5%8F%8C%E5%88%97"><a href="https://greasyfork.org/zh-CN/scripts/24508">Userscript+ 显示当前网页可用脚本</a>、<a href="https://greasyfork.org/zh-TW/scripts/14178-ac-baidu-%E9%87%8D%E5%AE%9A%E5%90%91%E4%BC%98%E5%8C%96%E7%99%BE%E5%BA%A6%E6%90%9C%E7%8B%97%E8%B0%B7%E6%AD%8C%E5%BF%85%E5%BA%94%E6%90%9C%E7%B4%A2-favicon-%E5%8F%8C%E5%88%97">AC-baidu-重定向</a>、<a href="https://greasyfork.org/zh-CN/scripts/373252-rss-show-site-all-rss">显示RSS订阅源</a>、<a href="https://greasyfork.org/zh-CN/scripts/38941">下载油管翻译的中文字幕</a>、<a href="https://wap.lfj.io">LFJ网站功能增强</a>
+<p><a href="https://github.com/XIU2/UserScript">自荐合集</a></p>
 </div>
 </div>
 <tr><td>Text</td><td>记事本</td><td><a href="https://chrome.google.com/webstore/detail/text/mmfbcljfglbokpmkimbfghdkjmjhdgbg">🌐</a></td></tr>
@@ -827,6 +856,7 @@ chmod +x ~/bin/termux-url-opener # 将脚本设为可执行文件<br>然后就�
 <tr><td>uBlock Origin</td><td>广告过滤</td><td><a href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm">🌐</a> <a href="http://jpliu.github.io/ublockorigincontentfarms.html">⚓</a></td></tr>
 <tr><td>URLRedirector</td><td>URL 重定向</td><td><a href="https://chrome.google.com/webstore/detail/urlredirector/maolmdhneopinciaokgohljhpdedekee">🌐</a></td></tr>
 <tr><td>User JS & CSS</td><td>任意网站自定义</td><td><a href="https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld">🌐</a></td></tr>
+<tr><td>Veed.io</td><td>教学和屏幕录制</td><td><a href="https://chrome.google.com/webstore/detail/screen-webcam-recorder-%20/mgipbckfkdcalgbcjmkogjijddnkbecc">🌐</a></td></tr>
 <tr><td>Video Downloader pro</td><td>网页视频下载</td><td><a href="https://chrome.google.com/webstore/detail/video-downloader-professi/elicpjhcidhpjomhibiffojpinpmmpil">🌐</a></td></tr>
 <tr><td>Video Speed Controller</td><td>视频速度控制</td><td><a href="https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk">🌐</a> <a href="https://chrome.google.com/webstore/detail/video-speed-controller/gccjmgkdajmijindicahfeoklljnloml">💽</a></td></tr>
 <tr><td>Web Clipper</td><td>网页剪藏</td><td><a href="https://github.com/webclipper/web-clipper">🌐</a></td></tr>
@@ -856,6 +886,7 @@ chmod +x ~/bin/termux-url-opener # 将脚本设为可执行文件<br>然后就�
 <tr><td>Everyone Piano</td><td>键盘钢琴</td><td><a href="https://www.everyonepiano.cn">📥</a></td></tr>
 <tr><td>LuckyDraw</td><td>年会抽奖</td><td><a href="https://github.com/vitozyf/lucky-draw">📥</a></td></tr>
 <tr><td>MagnetW</td><td>磁力搜索</td><td><a href="https://magnetw.app">📥</a></td></tr></tr>
+<tr><td>Marinara</td><td>番茄工作法</td><td><a href="https://chrome.google.com/webstore/detail/marinara-pomodoro®-assist/lojgmehidjdhhbmpjfamhpkpodfcodef">📥</a></td></tr>
 <tr><td>Mouseinc</td><td>鼠标手势</td><td><a href="https://shuax.com/project/mouseinc/">📥</a></td></tr></tr>
 <tr><td>NewFileTime</td><td>修改文件时间</td><td><a href="http://softwareok.com/?Download=NewFileTime">📥</a></td></tr>
 <tr><td>Nuclear </td><td>在线音乐播放</td><td><a href="https://nuclear.js.org">📥</a></td></tr>
@@ -871,10 +902,12 @@ chmod +x ~/bin/termux-url-opener # 将脚本设为可执行文件<br>然后就�
 <tr><td>Appscope</td><td>PWA应用商店</td><td><a href="https://appsco.pe">🏠</a></td></tr>
 <tr><td>PWARoom</td><td>PWA应用合集</td><td><a href="https://progressivewebapproom.com">🏠</a></td></tr>
 <tr><td>PWADirectory</td><td>PWA应用合集</td><td><a href="https://pwa-directory.appspot.com">🏠</a></td></tr>
-<tr><td>CrossNote</td><td>笔记软件</td><td><a href="https://crossnote.app">📇</a></td></tr>
+<tr><td>CrossNote</td><td>笔记本</td><td><a href="https://crossnote.app">📇</a></td></tr>
 <tr><td>Flomo</td><td>随手笔记</td><td><a href="https://flomoapp.com">📇</a></td></tr>
 <tr><td>Newsfeeder</td><td>RSS阅读器</td><td><a href="https://newsfeeder.esstudio.site/">📇</a></td></tr>
-<tr><td>Squoosh</td><td>图像压缩</td><td><a href="https://squoosh.app">📇</a></td></tr>
+<tr><td>Pomofocus</td><td>多功能番茄钟</td><td><a href="https://pomofocus.io">📇</a></td></tr>
+<tr><td>Simplenote</td><td>笔记本</td><td><a href="https://app.simplenote.com">📇</a></td></tr>
+<tr><td>Squoosh</td><td>图像压缩</td><td><a href="https://squoosh.app">📇</a> <a href="https://squoosh-desktop.vercel.app">📥</a></td></tr>
 </table>
 </div>
 </div>
